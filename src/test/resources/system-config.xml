@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- root element,all element must in this element -->
+<root>
+    <database>       
+        <!-- 数据库字符集是：gbk 还是 iso -->
+        <charset>gbk</charset>
+        <dbtype>oracle</dbtype>    
+    </database>
+    <organkey_zonghang>9999</organkey_zonghang>
+    <root_path>awp</root_path>
+    <alert>
+    	<!-- 我的案例添加预警数据范围 1.用户自己的预警及其他用户已处理的 2.用户自己的预警 -->
+    	<case_method>2</case_method>	
+    </alert>
+    <!-- catch switch(on/off) -->
+    <cache>
+        <jcs>
+            <switch>on</switch>
+        </jcs>
+    </cache>
+    <rules>
+    	<!-- 开发期间设置 ： "D:/projects/brms/WebRoot/WEB-INF" -->
+    	<!-- 发布道服务器设置 "SysHomeDir" :系统会自动或取规则命名空间作为基础目录-->
+    	<drl_base>D:/java_team/MyEclipse/workspace/AWP/src/com/ist/fdp/rule/common</drl_base>
+    	<drl_rmp_base>D:/java_team/MyEclipse 6.6/workspace/AWP/src/com/ist/rmp/rule/common</drl_rmp_base>
+    	<drl_root>drlfile</drl_root>
+    	<drl_src>src</drl_src>
+    	<drl_del>delete</drl_del>
+    	<drl_target>target</drl_target>
+    	<drl_temp>temp</drl_temp>
+    	<deploy>
+    		<server_1>
+    			<server_path>c:/</server_path>
+    		</server_1>
+    		<server_2>
+    			<server_path>c:/</server_path>
+    		</server_2>
+    	</deploy>
+    </rules>
+    <data>
+    	<!-- data root 数据文件保存的根 -->
+    	<dir_root>D:/java_team/Genuitec/Workspaces/trunk/AWP/AWP4.0/awp/src/main/webapp/WEB-INF/awp_data/</dir_root>
+        <!-- export template dir 相对路径 -->
+        <template>template</template>
+        <!-- edit file in temp dir 相对路径 -->
+        <dir_temp>temp</dir_temp>
+        <dir_report>reporttpl</dir_report>
+        <!-- 存放脚本相对路径 -->
+        <dir_script>script</dir_script>
+
+        <!-- upload dir -->
+        <import>c:/awp_data/upload/</import>
+        <!-- upload file size. Units:KB -->
+        <size_limit>20000</size_limit>
+        <!-- create sub dir. year, month, day -->
+        <dir_date>month</dir_date>
+        
+        <!-- 审计数据导出审核 -->
+        <host>10.6.50.110</host>
+        <username>awp</username>
+        <password>awp</password>
+        <port>21</port>
+        <serverPath>/awp/ftpdata/temp/</serverPath>
+        <localPath>C:/awp_data/download/other/</localPath>
+		<tmpdir>C:/awp_data/download/other/tmp/</tmpdir>
+		
+		<!--规则导入导出 -->
+		<rule_dir_root>D:/export_rule/</rule_dir_root>
+		<!--自定义数据导入最大值限制  单位kb-->
+		<import_size_limit>5120</import_size_limit>
+    </data>     
+    <sysparam>
+        <datastartyear>2007</datastartyear>
+        <datastartmonth>01</datastartmonth>
+        <datastartday>01</datastartday>
+    </sysparam>
+    <!-- bm server param-->
+    <bm>
+        <!-- SocketServer 端口 -->
+        <serverhost>127.0.0.1</serverhost>
+        <serverport>10001</serverport>
+    </bm>
+    <avp>
+    	<!-- 模板最大查询时间，单位：秒 -->
+    	<max_query_time>1800</max_query_time>
+    	<!-- 模板是否有帮助按钮  0 否 1 是 -->
+    	<is_help_button>1</is_help_button>
+    </avp>   
+
+    <met>
+    	<!-- 探索最大保存数据量 -->
+    	<max_tab_data>500000</max_tab_data>
+    	<!-- 探索大表数据量标示 -->
+    	<max_tab_countNumber>1000000</max_tab_countNumber>
+    </met>   
+    
+    <lucene>
+        <!-- 索引根目录 -->
+	    <index_root_path>D:\\test\\CMS</index_root_path>
+	</lucene>
+	<!-- 问题整改  -->
+	<rectify>
+		<!-- 整改员是否可以进行问题跟踪 0-不可以 1-可以 -->
+		<rectifytrack>1</rectifytrack>
+		<!-- 整改的流程表 报告：T06_AUDIT_PROJECT_04 工作底稿-->
+		<rectifyflowtable>T06_AUDIT_PROJECT_04</rectifyflowtable>
+	</rectify>  
+	
+	<img>
+        <!-- 小图标目录 -->
+	    <root_path>/awp/skin/blue/images/icon</root_path>
+	</img>
+	
+</root>
