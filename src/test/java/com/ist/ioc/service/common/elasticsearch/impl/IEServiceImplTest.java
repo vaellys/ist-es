@@ -131,7 +131,7 @@ public class IEServiceImplTest extends AbstractJUnit4SpringContextTests {
 	@Test
     public void testDeleteSQLHandler() {
         try {
-            iesService.deleteDoc("sql_fdsfvdsaffdsa", ES_SQL_TYPE);
+            iesService.deleteDoc("1283", ES_SQL_TYPE);
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -139,17 +139,19 @@ public class IEServiceImplTest extends AbstractJUnit4SpringContextTests {
 	
 	@Test
     public void testDirHandler() {
-        ESDto dto = new ESDto();
-        dto.setId("path_fdsfvdsaffdsa");
-        dto.setPath("C:\\awp_data\\upload");
-        
-        List<String> organkeys = new ArrayList<String>();
-        organkeys.add("110000");
-        organkeys.add("110001");
-        try {
-            iesService.dirHandler(dto, organkeys, 1);
-        }catch(IOException e){
-            e.printStackTrace();
+	    for (int i = 1; i < 3; i++) {
+	        ESDto dto = new ESDto();
+	        dto.setId("1283" + i);
+	        dto.setPath("C:\\awp_data\\upload");
+	        
+	        List<String> organkeys = new ArrayList<String>();
+	        organkeys.add("110000");
+	        organkeys.add("110001");
+	        try {
+	            iesService.dirHandler(dto, organkeys, 1);
+	        }catch(IOException e){
+	            e.printStackTrace();
+	        }
         }
     }
 	
@@ -168,7 +170,7 @@ public class IEServiceImplTest extends AbstractJUnit4SpringContextTests {
 	@Test
     public void testDeleteDirHandler() {
         try {
-            iesService.deleteDoc("path_fdsfvdsaffdsa", ES_DIR_TYPE);
+            iesService.deleteDoc("12832", ES_DIR_TYPE);
         }catch(IOException e){
             e.printStackTrace();
         }
