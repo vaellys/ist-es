@@ -52,27 +52,6 @@ public class Constants {
     
     private Constants(){
     }
-    /*public static final String ES_MAPPER_PROPERTY_TYPE = "type";
-    
-    public static final String ES_MAPPER_PROPERTY_TYPE_STRING = "string";
-    
-    public static final String ES_MAPPER_PROPERTY_TYPE_DATE = "date";
-    
-    public static final String ES_MAPPER_PROPERTY_TYPE_MULTI_FIELD = "multi_field";
-    
-    public static final String ES_MAPPER_PROPERTY_INDEX = "index";
-    
-    public static final String ES_MAPPER_PROPERTY_INDEX_ANALYZED = "analyzed";
-    
-    public static final String ES_MAPPER_PROPERTY_FIELDS = "fields";
-    
-    public static final String ES_MAPPER_PROPERTY_STORE = "store";
-    
-    public static final String ES_MAPPER_PROPERTY_STORE_YES = "yes";
-    
-    public static final String ES_MAPPER_PROPERTY_FORMAT = "format";
-    
-    public static final String ES_MAPPER_PROPERTY_FORMAT_VALUE = "yyyy-MM-dd HH:mm:ss";*/
     
     
 }
