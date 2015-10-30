@@ -88,7 +88,7 @@ public abstract class AbstractIESService  implements IESService {
      */
     public void documentHandler(Map<String, List<String>> mapParams, List<ESDto> documents, Integer action) throws IOException {
         if (logger.isDebugEnabled()) {
-            logger.debug(LogUtils.format("indexParams", mapParams, "documents", documents));
+            logger.debug(LogUtils.format("indexParams", mapParams));
         }
         try {
             if (null != mapParams && !mapParams.isEmpty()) {
@@ -122,7 +122,7 @@ public abstract class AbstractIESService  implements IESService {
                 }
             }
         } catch (IOException e) {
-            logger.error("构建索引败:" + LogUtils.format("indexParams", mapParams, "documents", documents), e);
+            logger.error("构建索引败:" + LogUtils.format("indexParams", mapParams), e);
             throw new IOException("构建索引败", e);
         } 
     }
