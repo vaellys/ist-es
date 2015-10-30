@@ -129,38 +129,54 @@
         class="com.ist.ioc.service.common.elasticsearch.impl.T12_se_fileServiceImpl"></bean>
         
     <!-- 要调用的工作类 -->
-    <!--  
-    <bean id="reimportScheduler" class="com.ist.ioc.schedule.ReimportScheduler"></bean>
-    -->
-    <!-- 要调用的工作类 -->
-    <bean id="quartzJob" class="com.ist.ioc.schedule.QuartzJob"></bean>
-    <!-- 定义调用对象和调用对象的方法 -->
-    <bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <!-- 调用的类 -->
-        <property name="targetObject">
-            <ref bean="quartzJob"/>
-        </property>
-        <!-- 调用类中的方法 -->
-        <property name="targetMethod">
-            <value>work</value>
-        </property>
-    </bean>
-    <!-- 定义触发时间 每天凌晨3点执行-->
-    <bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
-        <property name="jobDetail">
-            <ref bean="jobtask"/>
-        </property>
-        <!-- cron表达式 -->
-        <property name="cronExpression">
-            <value>0 0 */3 * * ?</value>
-        </property>
-    </bean>
-    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
-    <bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="triggers">
-            <list>
-                <ref bean="doTime"/>
-            </list>
-        </property>
-    </bean>
+        <bean id="quartzJobEs" class="com.ist.ioc.schedule.QuartzJob">
+        </bean>
+      <!-- 定义调用对象和调用对象的方法 -->
+        <bean id="jobtaskEs" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+            <!-- 调用的类 -->
+            <property name="targetObject">
+                <ref bean="quartzJobEs"/>
+            </property>
+            <!-- 调用类中的方法 -->
+            <property name="targetMethod">
+                <value>work</value>
+            </property>
+        </bean>
+        <!-- 定义触发时间 -->
+        <bean id="doTimeEs" class="org.springframework.scheduling.quartz.CronTriggerBean">
+            <property name="jobDetail">
+                <ref bean="jobtaskEs"/>
+            </property>
+            <!-- cron表达式 -->
+            <property name="cronExpression">
+                <value>0 0 8 * * ?</value>
+            </property>
+        </bean>
+        <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+        <bean id="startQuertzEs" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+            <property name="triggers">
+                <list>
+                    <ref bean="doTimeEs"/>
+                </list>
+            </property>
+        </bean> 
+    
+    <!-- 定时执行的任务 -->
+   <!--  <bean id="reimportScheduler" class="com.ist.ioc.schedule.ReimportScheduler"></bean> -->
+   
+        
+    <!-- 定时器配置管理 -->
+    <!-- <bean id="timerManager" class="com.ist.ioc.schedule.TimerManager"> -->
+        <!-- 小时 -->
+        <!--  <constructor-arg index="0" value="12"/> -->
+         <!-- 分钟 -->
+        <!--  <constructor-arg index="1" value="48"/> -->
+         <!-- 秒 -->
+         <!-- <constructor-arg index="2" value="00"/> -->
+         <!-- 安排任务 -->
+       <!--   <constructor-arg>
+            <ref bean="reimportScheduler"/>
+         </constructor-arg>
+    </bean> -->
+ 
 </beans>
