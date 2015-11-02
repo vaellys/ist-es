@@ -14,6 +14,11 @@ public interface T00_organ_dimService {
      */
     public List<Map<String, Object>> getOrganDimByOrgankeys(List<String> organkeys);
 
+    /**
+     * 查询所有的机构key
+     * 
+     * @return
+     */
     public List<String> getOrganByOrgankeys();
 
 }

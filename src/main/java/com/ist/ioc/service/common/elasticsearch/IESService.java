@@ -105,5 +105,12 @@ public interface IESService {
      */
     public boolean deleteDoc(String id, String type) throws IOException;
 
+    /**
+     * 对文档目录进行索引，参数esDto中需要设置id,path(文档目录路径)
+     * @param esDto  
+     * @param organkeys
+     * @param action
+     * @throws IOException
+     */
     public void dirHandler(ESDto esDto, List<String> organkeys, Integer action) throws IOException;
 }

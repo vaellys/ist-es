@@ -97,7 +97,7 @@ public abstract class AbstractIESService  implements IESService {
                     String index = StringUtils.lowerCase(key);
                     List<String> typeList = entry.getValue();
                     // 删除索引
-                     this.deleteIndex(index);
+//                     this.deleteIndex(index);
                     // 创建索引
                     this.addIndex(index);
                     if (null != typeList && !typeList.isEmpty()) {
@@ -372,9 +372,9 @@ public abstract class AbstractIESService  implements IESService {
         try {
             ImmutableSettings.Builder settingsBuilder = customImmutableSetting.getBuilder();
             XContentBuilder settings = XContentFactory.jsonBuilder().startObject().startObject("analysis").startObject("analyzer")
-                    .startObject("pinyin_analyzer").startArray("filter").value("standard").value("nGram").endArray().startArray("tokenizer")
+                    .startObject("pinyin_analyzer").startArray("filter").value("standard").value("word_delimiter").endArray().startArray("tokenizer")
                     .value("my_pinyin").endArray().endObject().endObject().startObject("tokenizer").startObject("my_pinyin").field("type", "pinyin")
-                    .field("first_letter", "only").field("padding_char", "").endObject().endObject().endObject();
+                    .field("first_letter", "none").field("padding_char", "").endObject().endObject().endObject();
             settingsBuilder.put(JsonUtils.jsonToObject(settings.string(), Map.class));
             logger.debug(LogUtils.format("settings", settings.string()));
             return settingsBuilder;

@@ -10,20 +10,27 @@ import com.ist.common.es.util.LogUtils;
 import com.ist.dto.bmp.ESDto;
 
 public class EsSqlHandlerDao extends JdbcDaoSupport {
-    
-    public List<ESDto> sqlHandler(String sql, List<String> organkeys){
+
+    /**
+     * 自定义sql执行
+     * 
+     * @param sql
+     * @param organkeys
+     * @return List<ESDto>
+     */
+    public List<ESDto> sqlHandler(String sql, List<String> organkeys) {
         StringBuilder stringBuilder = null;
         stringBuilder = new StringBuilder();
         stringBuilder.append("select distinct * from (");
         stringBuilder.append(sql);
         stringBuilder.append(") x ");
-        if(organkeys != null && !organkeys.isEmpty()){
+        if (organkeys != null && !organkeys.isEmpty()) {
             stringBuilder.append(" where x.organkey in('");
             stringBuilder.append(org.apache.commons.lang.StringUtils.join(organkeys, "','"));
             stringBuilder.append("')");
         }
         String sqlStr = stringBuilder.toString();
-        if(logger.isDebugEnabled()){
+        if (logger.isDebugEnabled()) {
             logger.debug("-------------------sql---------------" + sqlStr);
         }
         RowMapper<ESDto> rowMapper = new BeanPropertyRowMapper<ESDto>(ESDto.class);

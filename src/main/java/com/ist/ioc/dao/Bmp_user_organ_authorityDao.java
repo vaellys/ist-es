@@ -29,6 +29,5 @@ public class Bmp_user_organ_authorityDao extends JdbcDaoSupport {
         logger.debug(LogUtils.format("result", queryForList));
         return queryForList;
     }
-    
-    
+
 }
