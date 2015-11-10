@@ -92,7 +92,7 @@ public class IEServiceImplTest extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void testSQLHandler() {
 	    ESDto dto = new ESDto();
-	    dto.setId("sql_fdsfvdsaffdsa");
+	    dto.setId("sql_fdsfvdsaffdsa_aaa");
 	    dto.setSql("select organname as title, organkey, organname as description from T00_ORGAN_DIM");
 	    List<String> organkeys = new ArrayList<String>();
         organkeys.add("0552");
@@ -158,7 +158,7 @@ public class IEServiceImplTest extends AbstractJUnit4SpringContextTests {
 	@Test
     public void testDirHandlerPublic() {
         ESDto dto = new ESDto();
-        dto.setId("path_fdsfvdsaffdsa");
+        dto.setId("path_fdsfvd");
         dto.setPath("C:\\awp_data\\upload");
         try {
             iesService.dirHandler(dto, null, 1);
